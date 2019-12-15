@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shop-info">
+        <h1>{{ shop[0] }}</h1>
+        <span>Класс: {{ shop[1] }}</span>
+        <span>Номер: {{ shop[2] }}</span>
+        <div id="products-link">ПРОДУКТЫ</div>
+    </div>
+    <div id="departaments">
+    {% for departament in departaments %}
+        <div class="departament">
+            <div>Заведующий: <span class="departamentID">{{ departament[0] }}</span></div>
+            <br>
+            <div>Местоположение: {{ departament[1] }}</div>
+        </div>
+    {% endfor %}
+
+    {% if owned %}<div id="add-new-departament">
+        <span>Добавить новый отдел</span>
+    </div>{% endif %}
+
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let products_link = document.getElementById("products-link")
+        products_link.onclick = function () {
+            window.location.pathname = window.location.pathname + "/products"
+        };
+        {% if owned %}
+            let addNewDepBlock = document.getElementById("add-new-departament");
+            addNewDepBlock.onclick = function () {
+                window.location.pathname = window.location.pathname + "/dep_heads"
+            }
+        {% endif %}
+
+        let depBlocks = document.getElementsByClassName("departament");
+        for(let block of depBlocks) {
+            block.onclick = function () {
+                let depId = block.getElementsByClassName("departamentID")[0].textContent;
+                window.location.pathname = window.location.pathname + `/${depId}`;
+            }
+        }
+    </script>
+{% endblock %}

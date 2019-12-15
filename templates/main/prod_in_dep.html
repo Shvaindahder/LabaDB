@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shop-info">
+        <h1>{{ departament }}</h1>
+    </div>
+    <div id="products">
+    {% for product in products %}
+        <div class="product">
+            <div>Номенклатурный Номер: {{ product[0] }}</div>
+            <br>
+            <div>Название: {{ product[1] }}</div>
+            <br>
+            <div>Цена: {{ product[2] }}</div>
+            <br>
+            <div>{% if product[3] == "Нет в наличии" %}
+                {{ product[3] }}
+            {% else %}
+                Количество: {{ product[3] }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

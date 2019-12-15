@@ -1,0 +1,132 @@
+$dark-theme-background: #141414
+$dark-theme-header-color: #121212
+$dark-theme-header-border-color: #444
+$dark-theme-text-color: #f0f0f0
+
+$white-theme-background: #f0f0f0
+$white-theme-header-color: #a5a5a5
+$white-theme-header-border-color: #e9e9e9
+
+
+*
+    margin: 0
+    color: $dark-theme-text-color
+
+
+
+header
+    width: 100%
+    height: 10vh
+    background-color: $dark-theme-header-color
+    border-bottom: 1px solid $dark-theme-header-border-color
+
+
+main
+    background: $dark-theme-background
+    min-height: 90vh
+    padding-top: 20px
+
+
+main > div
+    width: 80%
+    margin: 0 10%
+
+
+.shop-block, .departament, .product
+    transition: box-shadow .3s
+    margin-bottom: 15px
+    padding: 6px 12px
+    background: $dark-theme-header-color
+    border: 1px solid $dark-theme-header-border-color
+
+
+.departament, .product
+    padding: 10px 12px
+
+
+.departament > div, .product > div
+    display: inline-block
+
+
+#products-link, #departaments-link
+    color: #5f0000
+    padding: 6px 3px
+    border: 1px solid $dark-theme-header-border-color
+    margin-top: 10px
+
+
+.shop-block:hover, .departament:hover, #products-link:hover, #departaments-link:hover
+    box-shadow: 2px 4px 3px 2px rgba(0, 0, 0, 0.52)
+
+
+#shop-info
+    width: 20%
+    margin: 0 40% 20px 40%
+    text-align: center
+
+
+#auth-block__form > input
+    color: black
+
+
+#add-new-departament
+    padding: 6px 12px
+    border: 1px solid $dark-theme-header-border-color
+    background: $dark-theme-header-color
+    width: 30%
+
+
+#add-new-departament:hover
+    box-shadow: 2px 4px 3px 2px rgba(0, 0, 0, 0.52)
+
+
+.pairs
+    width: 80%
+    margin-left: 10%
+    margin-bottom: 20px
+    box-sizing: border-box
+
+
+.head
+    display: inline-block
+    box-sizing: border-box
+    width: 40%
+    text-align: center
+    padding: 12px
+    border: 1px solid $dark-theme-header-border-color
+    background: $dark-theme-header-color
+    margin-left: 5%
+
+
+.head:first-child
+    margin-right: 9%
+
+
+#add-new-dep
+    width: 40%
+    height: 300px
+    box-sizing: border-box
+    border: 1px solid $dark-theme-header-border-color
+    background: $dark-theme-header-color
+    margin-left: 30%
+    margin-top: 50px
+
+
+#add-new-dep__form
+    width: 80%
+    margin-left: 10%
+    margin-top: 5%
+
+
+.add-new-dep__form-field > input
+    width: 60%
+    font-size: 14px
+    border-radius: 5px
+    border: 1px solid $dark-theme-header-border-color
+    color: black
+    padding: 6px 12px
+
+
+#submit
+    color: black
+

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shop-info">
+        <h1>{{ shop_name }}</h1>
+    </div>
+    <div id="heads">
+        {% for pair in pairs %}
+            <div class="pairs">
+                {% for head in pair %}
+                    <div class="head">
+                        {% if head == "ADD_NEW_BLOCK" %}
+                            <div id="add-new-block">+</div>
+                        {% else %}
+                            <span>{{ head[0] }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let addNewDep = document.getElementById("add-new-block");
+        if(addNewDep !== null) {
+            addNewDep.onclick = function () {
+                window.location.pathname = window.location.pathname + '/add-new-dep';
+            }
+        }
+    </script>
+{% endblock %}

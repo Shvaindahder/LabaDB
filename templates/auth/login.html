@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="auth-block">
+        <form action="" method="post" id="auth-block__form">
+            {{ form.hidden_tag() }}
+            {{ form.username.name }}
+            {{ form.username }}
+            {{ form.password }}
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}

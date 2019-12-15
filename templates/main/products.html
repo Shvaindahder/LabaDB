@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shop-info">
+        <h1>{{ shop[0] }}</h1>
+        <span>Класс: {{ shop[1] }}</span>
+        <span>Номер: {{ shop[2] }}</span>
+        <div id="departaments-link">ОТДЕЛЫ</div>
+    </div>
+    <div id="products">
+    {% for product in products %}
+        <div class="product">
+            <div>Номенклатурный Номер: <span class="productID">{{ product[0] }}</span></div>
+            <br>
+            <div>Название: {{ product[1] }}</div>
+            <br>
+            <div>Цена: {{ product[2] }}</div>
+            <br>
+            <div>{% if product[3] == "Нет в наличии" %}
+                {{ product[3] }}
+            {% else %}
+                Количество: {{ product[3] }}</div>
+            {% endif %}</div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let departaments_link = document.getElementById("departaments-link");
+        departaments_link.onclick = function () {
+            let currentLocationList = window.location.pathname.split('/');
+            let nextPage = "";
+            for(let i=0; i<currentLocationList.length-1; i++) {
+                if(i)
+                    nextPage += '/';
+                nextPage += currentLocationList[i];
+            }
+            window.location.pathname = nextPage;
+        }
+
+        let products = document.getElementsByClassName("product");
+        for(let product of products) {
+            product.onclick = function() {
+                let prodID = product.getElementsByClassName("productID")[0].textContent
+                window.location.pathname = window.location.pathname + `/${prodID}`;
+            }
+        }
+    </script>
+{% endblock %}

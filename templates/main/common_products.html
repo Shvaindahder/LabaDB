@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shop-info">
+        <h1>{{ product[0] }}</h1>
+        <h2>{{ product[1] }}</h2>
+    </div>
+    <div id="departaments">
+    {% for departament in departaments %}
+        <div class="departament">
+            <div>Заведующий: <span class="departamentID">{{ departament[0] }}</span></div>
+            <br>
+            <div>Количество: {{ departament[1] }}</div>
+        </div>
+    {% endfor %}
+
+    {% if owned %}<div id="add-new-departament">
+        <span>Добавить новый отдел</span>
+    </div>{% endif %}
+
+    </div>
+{% endblock %}

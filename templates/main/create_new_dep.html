@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="add-new-dep">
+        <form id="add-new-dep__form" method="post">
+            {{ form.hidden_tag() }}
+            <h1>Создать новый отдел</h1>
+            <div id="head-of-field" class="field-block">
+                <label>{{ form.head_of.label }}</label>
+                <div id="head-of" class="add-new-dep__form-field">{{ form.head_of }}</div>
+            </div>
+            <div id="head-of-password-field" class="field-block">
+                <label>{{ form.password.label }}</label>
+                <div id="head-of-password" class="add-new-dep__form-field">{{ form.password }}</div>
+            </div>
+            <div id="address-field" class="field-block">
+                <label>{{ form.address.label }}</label>
+                <div id="address" class="add-new-dep__form-field">
+                    {{ form.address }}
+                </div>
+            </div>
+            <div id="submit" class="field-block">
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

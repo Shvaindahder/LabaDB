@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div id="shops">
+
+        {% for shop in shops %}
+            <div class="shop-block">
+                <div class="name">
+                    <span>Название</span>
+                    <span class="shop-name">{{ shop[3] }}</span>
+                </div>
+                <div class="shop-class">
+                    <span>Класс</span>
+                    <span>{{ shop[1] }}</span>
+                </div>
+                <div class="num">
+                    <span>Номер</span>
+                    <span>{{ shop[2] }}</span>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        let shopBlocks = document.getElementsByClassName("shop-block");
+        for(let shopBlock of shopBlocks) {
+            shopBlock.onclick = function () {
+                let shopName = shopBlock.getElementsByClassName("shop-name")[0];
+                window.location.pathname = `shop/${shopName.textContent}`;
+            }
+        }
+    </script>
+{% endblock %}
